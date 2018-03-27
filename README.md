@@ -27,4 +27,4 @@ Create your elements and add tooltip actions based on mouse/pointer events:
 
 This produces a basic tooltip which can then be customised. 
 
-For details on the various options to customise tooltips, take a look at the API documentation. 
+For details on the various options to customise tooltips, take a look at the [API documentation](https://github.com/alastairotter/d3-tooltip/blob/master/API.md). 
