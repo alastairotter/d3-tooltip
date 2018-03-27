@@ -1,5 +1,7 @@
 # d3-tooltip
 
+<img src="https://github.com/alastairotter/d3-tooltip/blob/master/tooltips.png" align="center">
+
 d3-tooltip is small script (not yet a module, or a plugin) to make adding tooltips to D3 visualisations easy. 
 
 ## Usage
