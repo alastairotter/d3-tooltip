@@ -27,6 +27,7 @@ var d3Tip = {
                 .style("font-family","Arial, Helvetica, sans-serif")
                 .style("display","none")
                 .style("pointer-events", "none")
+                .html("tooltip")
         }
 
         tt = d3.select("." + this.tipClass); return this;
