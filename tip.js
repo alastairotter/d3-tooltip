@@ -31,6 +31,10 @@ var d3Tip = {
 
         tt = d3.select("." + this.tipClass); return this;
     },
+    // anchor: function (position) { 
+    //     console.log(position); return this;
+
+    // },
     hide: function () { 
         tt.style("display", "none"); return this;
     },
