@@ -1,5 +1,6 @@
 
 var tt;
+console.log("tt");
 
 var d3Tip = { 
 

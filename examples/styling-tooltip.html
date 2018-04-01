@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../../d3-tooltip/tip.js"></script>
+</head>
+<body>
+
+
+    <div id="chart">
+        <script>
+            var colors = ['#8dd3c7','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd','#ccebc5','#ffed6f'];
+
+            var data = [
+                {
+                    fruit: "Apples",
+                    quantity: 10
+                },
+                { 
+                    fruit: "Pears",
+                    quantity: 5
+                },
+                { 
+                    fruit: "Bananas",
+                    quantity: 8
+                },
+                { 
+                    fruit: "Pineapples",
+                    quantity: 9
+                },
+                { 
+                    fruit: "Grapes",
+                    quantity: 12
+                },
+                { 
+                    fruit: "Oranges",
+                    quantity: 4
+                }
+
+            ]
+
+            var width = 500,
+                height = 500;
+
+            var svg = d3.select("#chart")
+                .append("svg")
+                .attr("width", 500)
+                .attr("height", 500);
+
+            /*  Create a basic tooltip and add some styles during creation
+            Styles are added as a tip.style() function and take all of the common CSS style attributes.
+            */
+
+            var tip = d3Tip.create(true)
+                .style("background", "#000")
+                .style("color", "#fff")
+                .style("text-align", "center")
+                .style("border-radius", "5px")
+                
+
+            /* You can also increase the offset position for the tooltip. Default offset is 10px. Offset is specified as tip.offset([x,y])
+            */ 
+
+            tip.offset([20,20]);
+
+            /* Check the value set by calling tip.offset without a value */
+            var offset = tip.offset();
+            console.log(offset);
+               
+            /* Create your chart */
+            svg.selectAll("circle") 
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", function(d, i) {
+                    return Math.floor(Math.random()*350) + 130;
+                })
+                .attr("cy", function() { 
+                    return Math.floor(Math.random()*250) + 30;
+                })
+                .attr("r", function (d) { 
+                    return d.quantity * 2;
+                })
+                .style("fill", function (d, i) { 
+                    return colors[i];
+                })
+                .on("mousemove", tip.position)
+                .on("mouseover", function (d) { 
+                    var html = d.fruit; 
+                        html += "<br />";
+                        html += d.quantity;
+                    tip.show().html(html); 
+                })
+                .on("mouseout", tip.hide)
+
+
+
+                
+             
+
+            </script>
+
+
+    </div>
+    
+</body>
+</html>
