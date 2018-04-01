@@ -50,9 +50,17 @@
                 .attr("width", 500)
                 .attr("height", 500);
 
-            var tip = d3Tip.create(true).style("text-align", "center");
-                
+            /*  Create basic tooltip.
+            The 'true' value for the 'create()' function is optional. But if you specify 'false' here it wil return the tooltip with no attached styles. You can then add your own styles for the .d3-tooltip element
+            */
 
+            var tip = d3Tip.create(true);
+
+            /* Get value for offset by leaving out the value in the function call */
+            var offset = tip.offset();
+            console.log(offset);
+               
+            /* Create your chart */
             svg.selectAll("circle") 
                 .data(data)
                 .enter()
@@ -77,6 +85,9 @@
                     tip.show().html(html); 
                 })
                 .on("mouseout", tip.hide)
+
+
+
                 
              
 
